@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:histrav_app_flutter/icons/my_flutter_app_icons.dart';
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -9,12 +9,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _currentTab = 0;
+  int _selectedNavbar = 0;
+
+  void _changeSelectedNavBar(int index) {
+    setState(() {
+      _selectedNavbar = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: Center(
           child: ListView(
         padding: const EdgeInsets.symmetric(vertical: 30.0),
         children: const <Widget>[
@@ -30,32 +36,16 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       )),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentTab,
-        onTap: (int value) {
-          setState(() {
-            _currentTab = value;
-          });
-        },
+      bottomNavigationBar: ConvexAppBar(
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(
-              MyFlutterApp.search,
-              size: 30.0,
-            ),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              MyFlutterApp.local_pizza,
-              size: 30.0,
-            ),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              MyFlutterApp.account_circle,
-            ),
-          )
+          TabItem(icon: Icons.home, title: 'Home'),
+          TabItem(icon: Icons.map, title: 'Discovery'),
+          TabItem(icon: Icons.add, title: 'Add'),
+          TabItem(icon: Icons.message, title: 'Message'),
+          TabItem(icon: Icons.people, title: 'Profile'),
         ],
+        initialActiveIndex: _selectedNavbar,
+        onTap: _changeSelectedNavBar,
       ),
     );
   }
