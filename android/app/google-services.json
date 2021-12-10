@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "173350324977",
+    "project_id": "histrav-auth-flutter",
+    "storage_bucket": "histrav-auth-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:173350324977:android:df4ead8b70c0c82e77b750",
+        "android_client_info": {
+          "package_name": "com.example.histrav_app_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "173350324977-nag56qjirisceu363041p5uu9orbfmb1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNLrTzob9DoTaLWpTTmykhuEKomBo-1Qk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "173350324977-nag56qjirisceu363041p5uu9orbfmb1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

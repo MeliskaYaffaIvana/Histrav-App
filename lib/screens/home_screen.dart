@@ -39,9 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: ConvexAppBar(
         items: const [
           TabItem(icon: Icons.home, title: 'Home'),
-          TabItem(icon: Icons.map, title: 'Discovery'),
           TabItem(icon: Icons.add, title: 'Add'),
-          TabItem(icon: Icons.message, title: 'Message'),
           TabItem(icon: Icons.people, title: 'Profile'),
         ],
         initialActiveIndex: _selectedNavbar,

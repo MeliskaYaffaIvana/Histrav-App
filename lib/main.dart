@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:histrav_app_flutter/screens/home_screen.dart';
+import 'package:histrav_app_flutter/Screens/home_screen.dart';
+import 'package:histrav_app_flutter/Sign Up/sign_up.dart';
+import 'package:histrav_app_flutter/Sign In/sign_in.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color(0xFF3EBACE),
         scaffoldBackgroundColor: const Color(0xFFF3F5F7),
       ),
-      home: const HomeScreen(),
+      home: const SignUp(),
     );
   }
 }
