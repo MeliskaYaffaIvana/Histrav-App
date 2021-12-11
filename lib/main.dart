@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:histrav_app_flutter/Screens/home_screen.dart';
 import 'package:histrav_app_flutter/Sign Up/sign_up.dart';
 import 'package:histrav_app_flutter/Sign In/sign_in.dart';
 
@@ -20,7 +19,11 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color(0xFF3EBACE),
         scaffoldBackgroundColor: const Color(0xFFF3F5F7),
       ),
-      home: const SignUp(),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => const SignIn(),
+        SignUp.routeName: (context) => const SignUp(),
+      },
     );
   }
 }

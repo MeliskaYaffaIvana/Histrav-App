@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatelessWidget {
-  static const routeName = "/registerPage";
+  static const routeName = "/signUp";
 
   const SignUp({Key? key}) : super(key: key);
 
@@ -96,7 +96,8 @@ class SignUp extends StatelessWidget {
         ),
         TextFormField(
           decoration: const InputDecoration(
-            border: UnderlineInputBorder(
+            border: UnderlineInputBorder(),
+            enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Colors.white, width: 1.5),
             ),
             focusedBorder: UnderlineInputBorder(
@@ -109,14 +110,17 @@ class SignUp extends StatelessWidget {
             hintStyle: TextStyle(
               color: Colors.amber,
             ),
-            labelStyle: TextStyle(
-              color: Colors.white,
-            ),
           ),
+          style: const TextStyle(
+            color: Colors.white,
+          ),
+          obscureText: true,
+          autofocus: false,
         ),
         TextFormField(
           decoration: const InputDecoration(
-            border: UnderlineInputBorder(
+            border: UnderlineInputBorder(),
+            enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Colors.white, width: 1.5),
             ),
             focusedBorder: UnderlineInputBorder(
@@ -129,10 +133,12 @@ class SignUp extends StatelessWidget {
             hintStyle: TextStyle(
               color: Colors.amber,
             ),
-            labelStyle: TextStyle(
-              color: Colors.white,
-            ),
           ),
+          style: const TextStyle(
+            color: Colors.white,
+          ),
+          obscureText: true,
+          autofocus: false,
         )
       ],
     );
