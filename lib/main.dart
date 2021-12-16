@@ -1,8 +1,16 @@
+import 'package:histrav_app_flutter/Screens/login_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:histrav_app_flutter/Sign Up/sign_up.dart';
-import 'package:histrav_app_flutter/Sign In/sign_in.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: const FirebaseOptions(
+          apiKey: "AIzaSyBNLrTzob9DoTaLWpTTmykhuEKomBo-1Qk",
+          appId: "1:173350324977:android:df4ead8b70c0c82e77b750",
+          messagingSenderId: "173350324977",
+          projectId: "histrav-auth-flutter"));
+
   runApp(const MyApp());
 }
 
@@ -13,17 +21,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter History Travel',
-      debugShowCheckedModeBanner: false,
+      title: 'Email And Password Login',
       theme: ThemeData(
-        primaryColor: const Color(0xFF3EBACE),
-        scaffoldBackgroundColor: const Color(0xFFF3F5F7),
+        primarySwatch: Colors.red,
       ),
-      initialRoute: "/",
-      routes: {
-        "/": (context) => const SignIn(),
-        SignUp.routeName: (context) => const SignUp(),
-      },
+      debugShowCheckedModeBanner: false,
+      home: const LoginScreen(),
     );
   }
 }
