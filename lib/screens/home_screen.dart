@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:histrav_app_flutter/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
+import 'package:carousel_slider/carousel_slider.dart';
 import 'login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,6 +15,15 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   User? user = FirebaseAuth.instance.currentUser;
   UserModel loggedInUser = UserModel();
+
+  int _current = 0;
+  List imgList = [
+    'https://images.unsplash.com/photo-1502117859338-fd9daa518a9a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1554321586-92083ba0a115?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1536679545597-c2e5e1946495?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1543922596-b3bbaba80649?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1502943693086-33b5b1cfdf2f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80'
+  ];
 
   @override
   void initState() {
@@ -33,47 +42,67 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Welcome"),
+        title: const Text("HISTRAV"),
         centerTitle: true,
       ),
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                height: 150,
-                child: Image.asset("assets/icon_register.jpg", fit: BoxFit.contain),
-              ),
-              const Text(
-                "Welcome Back",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text("${loggedInUser.firstName} ${loggedInUser.secondName}",
-                  style: const TextStyle(
-                    color: Colors.black54,
-                    fontWeight: FontWeight.w500,
-                  )),
-              Text("${loggedInUser.email}",
-                  style: const TextStyle(
-                    color: Colors.black54,
-                    fontWeight: FontWeight.w500,
-                  )),
-              const SizedBox(
-                height: 15,
-              ),
-              ActionChip(
-                  label: const Text("Logout"),
-                  onPressed: () {
-                    logout(context);
-                  }),
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            CarouselSlider(
+              height: 400.0,
+              initialPage: 0,
+              enlargeCenterPage: true,
+              autoPlay: false,
+              reverse: false,
+              enableInfiniteScroll: true,
+              autoPlayInterval: Duration(seconds: 2),
+              autoPlayAnimationDuration: Duration(milliseconds: 2000),
+              pauseAutoPlayOnTouch: Duration(seconds: 10),
+              scrollDirection: Axis.horizontal,
+              onPageChanged: (index) {
+                setState(() {
+                  _current = index;
+                });
+              },
+              items: imgList.map((imgUrl) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return Container(
+                      width: MediaQuery.of(context).size.width,
+                      margin: EdgeInsets.symmetric(horizontal: 10.0),
+                      decoration: BoxDecoration(
+                        color: Colors.green,
+                      ),
+                      child: Image.network(
+                        imgUrl,
+                        fit: BoxFit.fill,
+                      ),
+                    );
+                  },
+                );
+              }).toList(),
+            ),
+            Text("${loggedInUser.firstName} ${loggedInUser.secondName}",
+                style: const TextStyle(
+                  color: Colors.black54,
+                  fontWeight: FontWeight.w500,
+                )),
+            Text("${loggedInUser.email}",
+                style: const TextStyle(
+                  color: Colors.black54,
+                  fontWeight: FontWeight.w500,
+                )),
+            const SizedBox(
+              height: 15,
+            ),
+            ActionChip(
+                label: const Text("Logout"),
+                onPressed: () {
+                  logout(context);
+                }),
+          ],
         ),
       ),
     );
