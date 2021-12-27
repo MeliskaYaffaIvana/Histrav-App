@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:histrav_app_flutter/model/crud.dart';
+import 'package:histrav_app_flutter/model/story.dart'';
 //nuevo para imagenes
 import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
