@@ -65,5 +65,7 @@ class Database {
         .catchError((e) => print(e));
   }
 
+  read() {}
+
   void initialise() {}
 }
