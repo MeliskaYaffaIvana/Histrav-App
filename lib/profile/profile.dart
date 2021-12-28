@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:histrav_app_flutter/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:histrav_app_flutter/Screens/bottom_bar.dart';
 import 'package:histrav_app_flutter/Screens/login_screen.dart';
+import 'package:intl/intl.dart';
 
 class ProfileApp extends StatefulWidget {
   const ProfileApp({Key? key}) : super(key: key);
@@ -32,7 +32,6 @@ class _ProfileAppState extends State<ProfileApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar : const BottomBarNavigation(),
       backgroundColor: const Color(0xffCEEEDD),
       body: Center(
         child: Column(
@@ -50,17 +49,13 @@ class _ProfileAppState extends State<ProfileApp> {
             const SizedBox(
               height: 30,
             ),
-            body: Center(
-              child: Container(
-                color:Colors.lightGreen,
-                width: 160,
-                height: 60,
-                child: Text("${loggedInUser.firstName} ${loggedInUser.secondName}",
-                  style: const TextStyle(
+            Text("${loggedInUser.firstName} ${loggedInUser.secondName}",
+                style: const TextStyle(
                   color: Colors.black54,
                   fontWeight: FontWeight.w500,
-                child: Text("${loggedInUser.email}",
-                  style: const TextStyle(
+                )),
+            Text("${loggedInUser.email}",
+                style: const TextStyle(
                   color: Colors.black54,
                   fontWeight: FontWeight.w500,
                 )),

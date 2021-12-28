@@ -57,9 +57,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffCEEEDD),
       appBar: AppBar(
-        title: const Text("Reset Password"),
-      ),
+          title: const Text("Reset Password"),
+          backgroundColor: const Color(0xff61825F)),
       body: Column(
         children: [
           Container(
@@ -116,7 +117,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             },
                             child: const Text(
                               'Send Email',
-                              style: TextStyle(fontSize: 18.0),
+                              style: TextStyle(
+                                fontSize: 18.0,
+                              ),
                             ),
                           ),
                           TextButton(
@@ -133,7 +136,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             },
                             child: const Text(
                               'Login',
-                              style: TextStyle(fontSize: 14.0),
+                              style: TextStyle(
+                                  fontSize: 14.0, color: Color(0xff61825F)),
                             ),
                           ),
                         ],
@@ -157,7 +161,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                         ),
                                         (route) => false)
                                   },
-                              child: const Text('Signup'))
+                              child: const Text(
+                                'Signup',
+                                style: TextStyle(color: Color(0xff61825F)),
+                              ))
                         ],
                       ),
                     )

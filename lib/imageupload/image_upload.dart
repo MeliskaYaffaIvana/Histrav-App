@@ -26,7 +26,7 @@ class _ImageUploadState extends State<ImageUpload> {
       if (pick != null) {
         _image = File(pick.path);
       } else {
-        showSnackBar("No File selected", Duration(milliseconds: 400));
+        showSnackBar("No File selected", const Duration(milliseconds: 400));
       }
     });
   }
@@ -49,16 +49,14 @@ class _ImageUploadState extends State<ImageUpload> {
         .doc(widget.userId)
         .collection("images")
         .add({'downloadURL': downloadURL}).whenComplete(
-            () => showSnackBar("Image Uploaded", Duration(seconds: 2)));
+            () => showSnackBar("Image Uploaded", const Duration(seconds: 2)));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Upload Image "),
-      ),
-      body: Center(
+    return MaterialApp(
+      color: Colors.amber,
+      home: Center(
         child: Padding(
             padding: const EdgeInsets.all(8),
             child: ClipRRect(
@@ -100,7 +98,7 @@ class _ImageUploadState extends State<ImageUpload> {
                                         uploadImage(_image!);
                                       } else {
                                         showSnackBar("Select Image first",
-                                            Duration(milliseconds: 400));
+                                            const Duration(milliseconds: 400));
                                       }
                                     },
                                     child: const Text("Upload Image")),
