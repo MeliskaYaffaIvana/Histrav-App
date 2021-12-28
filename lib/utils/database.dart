@@ -64,4 +64,6 @@ class Database {
             () => print('The course data has been deleted from the Database'))
         .catchError((e) => print(e));
   }
+
+  void initialise() {}
 }
