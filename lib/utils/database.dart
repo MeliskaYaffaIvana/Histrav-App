@@ -21,7 +21,9 @@ class Database {
     await documentReferencer
         .set(data)
         .whenComplete(
+            // ignore: avoid_print
             () => print("The course data has been added to the Database"))
+        // ignore: avoid_print
         .catchError((e) => print(e));
   }
 
@@ -41,7 +43,9 @@ class Database {
     await documentReferencer
         .update(data)
         .whenComplete(
+            // ignore: avoid_print
             () => print("The course data has been updated to the Database"))
+        // ignore: avoid_print
         .catchError((e) => print(e));
   }
 
@@ -61,7 +65,9 @@ class Database {
     await documentReferencer
         .delete()
         .whenComplete(
+            // ignore: avoid_print
             () => print('The course data has been deleted from the Database'))
+        // ignore: avoid_print
         .catchError((e) => print(e));
   }
 

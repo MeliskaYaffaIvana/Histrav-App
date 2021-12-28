@@ -7,6 +7,8 @@ class AddScreen extends StatelessWidget {
   final FocusNode _destinationFocusNode = FocusNode();
   final FocusNode _cityFocusNode = FocusNode();
 
+   AddScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -19,7 +21,7 @@ class AddScreen extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: CustomColors.firebaseNavy,
-          title: AppBarTitle(),
+          title: const AppBarTitle(),
         ),
         body: SafeArea(
           child: Padding(

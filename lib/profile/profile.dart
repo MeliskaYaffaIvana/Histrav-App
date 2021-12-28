@@ -3,7 +3,7 @@ import 'package:histrav_app_flutter/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:histrav_app_flutter/Screens/login_screen.dart';
-import 'package:intl/intl.dart';
+
 
 class ProfileApp extends StatefulWidget {
   const ProfileApp({Key? key}) : super(key: key);

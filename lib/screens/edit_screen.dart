@@ -9,11 +9,11 @@ class EditScreen extends StatefulWidget {
   final String currentcity;
   final String documentId;
 
-  EditScreen({
+  const EditScreen({Key? key, 
     required this.currentdestination,
     required this.currentcity,
     required this.documentId,
-  });
+  }) : super(key: key);
 
   @override
   _EditScreenState createState() => _EditScreenState();
@@ -38,11 +38,11 @@ class _EditScreenState extends State<EditScreen> {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: CustomColors.firebaseNavy,
-          title: AppBarTitle(),
+          title: const AppBarTitle(),
           actions: [
             _isDeleting
-                ? Padding(
-                    padding: const EdgeInsets.only(
+                ? const Padding(
+                    padding: EdgeInsets.only(
                       top: 10.0,
                       bottom: 10.0,
                       right: 16.0,
@@ -55,7 +55,7 @@ class _EditScreenState extends State<EditScreen> {
                     ),
                   )
                 : IconButton(
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.delete,
                       color: Colors.redAccent,
                       size: 32,

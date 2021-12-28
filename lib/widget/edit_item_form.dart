@@ -11,13 +11,13 @@ class EditItemForm extends StatefulWidget {
   final String currentcity;
   final String documentId;
 
-  const EditItemForm({
+  const EditItemForm({Key? key, 
     required this.destinationFocusNode,
     required this.cityFocusNode,
     required this.currentdestination,
     required this.currentcity,
     required this.documentId,
-  });
+  }) : super(key: key);
 
   @override
   _EditItemFormState createState() => _EditItemFormState();
@@ -58,8 +58,8 @@ class _EditItemFormState extends State<EditItemForm> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 24.0),
-                Text(
+                const SizedBox(height: 24.0),
+                const Text(
                   'Course Name',
                   style: TextStyle(
                     color: CustomColors.firebaseGrey,
@@ -68,7 +68,7 @@ class _EditItemFormState extends State<EditItemForm> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                 CustomFormField(
                   isLabelEnabled: false,
                   controller: _destinationController,
@@ -81,8 +81,8 @@ class _EditItemFormState extends State<EditItemForm> {
                   label: 'Course Name',
                   hint: 'Please Enter Course Name',
                 ),
-                SizedBox(height: 24.0),
-                Text(
+                const SizedBox(height: 24.0),
+                const Text(
                   'Class Link',
                   style: TextStyle(
                     color: CustomColors.firebaseGrey,
@@ -91,7 +91,7 @@ class _EditItemFormState extends State<EditItemForm> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                 CustomFormField(
                   maxLines: 10,
                   isLabelEnabled: false,
@@ -109,8 +109,8 @@ class _EditItemFormState extends State<EditItemForm> {
             ),
           ),
           _isProcessing
-              ? Padding(
-                  padding: const EdgeInsets.all(16.0),
+              ? const Padding(
+                  padding: EdgeInsets.all(16.0),
                   child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
                       CustomColors.appPurple1,
@@ -118,6 +118,7 @@ class _EditItemFormState extends State<EditItemForm> {
                   ),
                 )
               : Container(
+                padding: const EdgeInsets.all(10),
                   width: double.maxFinite,
                   child: ElevatedButton(
                     style: ButtonStyle(
@@ -152,7 +153,7 @@ class _EditItemFormState extends State<EditItemForm> {
                         Navigator.of(context).pop();
                       }
                     },
-                    child: Padding(
+                    child: const Padding(
                       padding: EdgeInsets.only(top: 16.0, bottom: 16.0),
                       child: Text(
                         'UPDATE ITEM',

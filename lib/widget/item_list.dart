@@ -5,19 +5,21 @@ import 'package:histrav_app_flutter/screens/edit_screen.dart';
 import 'package:histrav_app_flutter/utils/database.dart';
 
 class ItemList extends StatelessWidget {
+  const ItemList({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
       stream: Database.readItems(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          return Text('Something went wrong');
+          return const Text('Something went wrong');
         } else if (snapshot.hasData || snapshot.data != null) {
           return ListView.separated(
-            separatorBuilder: (context, index) => SizedBox(height: 16.0),
+            separatorBuilder: (context, index) => const SizedBox(height: 16.0),
             itemCount: snapshot.data!.docs.length,
             itemBuilder: (context, index) {
-              var noteInfo = snapshot.data!.docs[index].data()!;
+              var noteInfo = snapshot.data!.docs[index];
               String docID = snapshot.data!.docs[index].id;
               String destination = noteInfo['destination'];
               String city = noteInfo['city'];
@@ -56,7 +58,7 @@ class ItemList extends StatelessWidget {
           );
         }
 
-        return Center(
+        return const Center(
           child: CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(
               CustomColors.appPurple1,

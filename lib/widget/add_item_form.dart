@@ -8,10 +8,10 @@ class AddItemForm extends StatefulWidget {
   final FocusNode destinationFocusNode;
   final FocusNode cityFocusNode;
 
-  const AddItemForm({
+  const AddItemForm({Key? key, 
     required this.destinationFocusNode,
     required this.cityFocusNode,
-  });
+  }) : super(key: key);
 
   @override
   _AddItemFormState createState() => _AddItemFormState();
@@ -40,8 +40,8 @@ class _AddItemFormState extends State<AddItemForm> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 24.0),
-                Text(
+                const SizedBox(height: 24.0),
+                const Text(
                   'Course Name',
                   style: TextStyle(
                     color: CustomColors.firebaseGrey,
@@ -50,7 +50,7 @@ class _AddItemFormState extends State<AddItemForm> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                 CustomFormField(
                   isLabelEnabled: false,
                   controller: _destinationController,
@@ -63,8 +63,8 @@ class _AddItemFormState extends State<AddItemForm> {
                   label: 'Course Name',
                   hint: 'Please Enter Course Name',
                 ),
-                SizedBox(height: 24.0),
-                Text(
+                const SizedBox(height: 24.0),
+                const Text(
                   'Class Link',
                   style: TextStyle(
                     color: CustomColors.firebaseGrey,
@@ -73,7 +73,7 @@ class _AddItemFormState extends State<AddItemForm> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                 CustomFormField(
                   maxLines: 10,
                   isLabelEnabled: false,
@@ -91,8 +91,8 @@ class _AddItemFormState extends State<AddItemForm> {
             ),
           ),
           _isProcessing
-              ? Padding(
-                  padding: const EdgeInsets.all(16.0),
+              ? const Padding(
+                  padding: EdgeInsets.all(16.0),
                   child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
                       CustomColors.appPurple1,
@@ -100,6 +100,7 @@ class _AddItemFormState extends State<AddItemForm> {
                   ),
                 )
               : Container(
+                padding: const EdgeInsets.all(10),
                   width: double.maxFinite,
                   child: ElevatedButton(
                     style: ButtonStyle(
@@ -133,7 +134,7 @@ class _AddItemFormState extends State<AddItemForm> {
                         Navigator.of(context).pop();
                       }
                     },
-                    child: Padding(
+                    child: const Padding(
                       padding: EdgeInsets.only(top: 16.0, bottom: 16.0),
                       child: Text(
                         'ADD ITEM',
