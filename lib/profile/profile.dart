@@ -48,24 +48,20 @@ class _ProfileAppState extends State<ProfileApp> {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(
-              height: 30,
+              height: 10,
             ),
-            body: Center(
-              child: Container(
-                color:Colors.lightGreen,
-                width: 160,
-                height: 60,
-                child: Text("${loggedInUser.firstName} ${loggedInUser.secondName}",
-                  style: const TextStyle(
+            Text("${loggedInUser.firstName} ${loggedInUser.secondName}",
+                style: const TextStyle(
                   color: Colors.black54,
                   fontWeight: FontWeight.w500,
-                child: Text("${loggedInUser.email}",
-                  style: const TextStyle(
+                )),
+            Text("${loggedInUser.email}",
+                style: const TextStyle(
                   color: Colors.black54,
                   fontWeight: FontWeight.w500,
                 )),
             const SizedBox(
-              height: 35,
+              height: 15,
             ),
             ActionChip(
                 backgroundColor: const Color(0xff8FC88E),
