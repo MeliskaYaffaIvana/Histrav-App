@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:histrav_app_flutter/Screens/forgot_password.dart';
 import 'package:histrav_app_flutter/Screens/login_screen.dart';
 
 Future<void> main() async {
