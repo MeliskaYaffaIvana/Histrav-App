@@ -4,7 +4,7 @@ import 'package:histrav_app_flutter/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:histrav_app_flutter/screens/add_screen.dart';
+import 'package:histrav_app_flutter/screens/edit_screen.dart';
 import 'package:histrav_app_flutter/utils/database.dart';
 import 'login_screen.dart';
 
@@ -22,6 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   late Database db;
   List docs = [];
+
+  var story;
   initialise() {
     db = Database();
     db.initialise();
@@ -52,20 +54,20 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Color(0xffCEEEDD),
       appBar: AppBar(
         backgroundColor: Color(0xff8FC88E),
-        title: Text("story"),
+        title: const Text("story"),
       ),
       body: ListView.builder(
         itemCount: docs.length,
         itemBuilder: (BuildContext context, int index) {
           return Card(
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             child: ListTile(
               onTap: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            View(story: docs[index], db: db))).then((value) => {
+                            view(story: docs[index], db: db))).then((value) => {
                       if (value != null) {initialise()}
                     });
               },
@@ -87,8 +89,12 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+  Add({required Database db}) {}
+
+  view({story, required Database db}) {}
 }
