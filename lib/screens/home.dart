@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:histrav_app_flutter/Screens/add_screen.dart';
 import 'package:histrav_app_flutter/Screens/register_screnn.dart';
-import 'package:histrav_app_flutter/imageupload/image_upload.dart';
 import 'package:histrav_app_flutter/profile/profile.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final _listPage = <Widget>[
       const RegistrationScreen(),
-      const ImageUpload(),
+      AddScreen(),
       const ProfileApp(),
     ];
 

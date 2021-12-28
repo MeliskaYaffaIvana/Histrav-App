@@ -8,7 +8,8 @@ class AddItemForm extends StatefulWidget {
   final FocusNode destinationFocusNode;
   final FocusNode cityFocusNode;
 
-  const AddItemForm({Key? key, 
+  const AddItemForm({
+    Key? key,
     required this.destinationFocusNode,
     required this.cityFocusNode,
   }) : super(key: key);
@@ -31,16 +32,11 @@ class _AddItemFormState extends State<AddItemForm> {
       key: _addItemFormKey,
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 8.0,
-              right: 8.0,
-              bottom: 24.0,
-            ),
+          Flexible(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 24.0),
+                const SizedBox(height: 10.0),
                 const Text(
                   'Course Name',
                   style: TextStyle(
@@ -100,7 +96,7 @@ class _AddItemFormState extends State<AddItemForm> {
                   ),
                 )
               : Container(
-                padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   width: double.maxFinite,
                   child: ElevatedButton(
                     style: ButtonStyle(
@@ -135,7 +131,7 @@ class _AddItemFormState extends State<AddItemForm> {
                       }
                     },
                     child: const Padding(
-                      padding: EdgeInsets.only(top: 16.0, bottom: 16.0),
+                      padding: EdgeInsets.all(5),
                       child: Text(
                         'ADD ITEM',
                         style: TextStyle(
