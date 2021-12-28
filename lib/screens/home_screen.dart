@@ -1,9 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:histrav_app_flutter/model/user_model.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import 'login_screen.dart';
+import 'package:histrav_app_flutter/profile/profile.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,76 +9,50 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  User? user = FirebaseAuth.instance.currentUser;
-  UserModel loggedInUser = UserModel();
+  int _selectedNavbar = 0;
 
-  @override
-  void initState() {
-    super.initState();
-    FirebaseFirestore.instance
-        .collection("users")
-        .doc(user!.uid)
-        .get()
-        .then((value) {
-      loggedInUser = UserModel.fromMap(value.data());
-      setState(() {});
+  void _changeSelectedNavBar(int index) {
+    setState(() {
+      _selectedNavbar = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final _listPage = <Widget>[
+      const ProfileApp(),
+    ];
+
+    const _bottomNavBar = <BottomNavigationBarItem>[
+      BottomNavigationBarItem(
+        icon: Icon(Icons.home),
+        title: Text('Home'),
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.add),
+        title: Text('Add'),
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.people),
+        title: Text('Profile'),
+      ),
+    ];
+    final _bottomBar = BottomNavigationBar(
+      items: _bottomNavBar,
+      currentIndex: _selectedNavbar,
+      selectedItemColor: Colors.blueAccent,
+      unselectedItemColor: Colors.green,
+      onTap: _changeSelectedNavBar,
+    );
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Welcome"),
-        centerTitle: true,
+        title: Text('HisTrav'),
       ),
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                height: 150,
-                child: Image.asset("assets/icon_register.jpg", fit: BoxFit.contain),
-              ),
-              const Text(
-                "Welcome Back",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text("${loggedInUser.firstName} ${loggedInUser.secondName}",
-                  style: const TextStyle(
-                    color: Colors.black54,
-                    fontWeight: FontWeight.w500,
-                  )),
-              Text("${loggedInUser.email}",
-                  style: const TextStyle(
-                    color: Colors.black54,
-                    fontWeight: FontWeight.w500,
-                  )),
-              const SizedBox(
-                height: 15,
-              ),
-              ActionChip(
-                  label: const Text("Logout"),
-                  onPressed: () {
-                    logout(context);
-                  }),
-            ],
-          ),
-        ),
+        child: _listPage[_selectedNavbar],
       ),
+      bottomNavigationBar: _bottomBar,
     );
-  }
-
-  // the logout function
-  Future<void> logout(BuildContext context) async {
-    await FirebaseAuth.instance.signOut();
-    Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const LoginScreen()));
   }
 }
