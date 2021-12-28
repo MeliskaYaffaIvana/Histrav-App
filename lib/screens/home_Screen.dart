@@ -4,7 +4,7 @@ import 'package:histrav_app_flutter/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:histrav_app_flutter/screens/add.dart';
+import 'package:histrav_app_flutter/screens/add_screen.dart';
 import 'package:histrav_app_flutter/screens/database.dart';
 import 'package:histrav_app_flutter/screens/view.dart';
 import 'login_screen.dart';
