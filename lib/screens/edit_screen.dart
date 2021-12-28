@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:histrav_app_flutter/model/custom_colors.dart';
 import 'package:histrav_app_flutter/utils/database.dart';
-import 'package:histrav_app_flutter/widget/app_bar_title.dart';
 import 'package:histrav_app_flutter/widget/edit_item_form.dart';
 
 class EditScreen extends StatefulWidget {
@@ -37,8 +36,6 @@ class _EditScreenState extends State<EditScreen> {
         backgroundColor: CustomColors.firebaseNavy,
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: CustomColors.firebaseNavy,
-          title: const AppBarTitle(),
           actions: [
             _isDeleting
                 ? const Padding(
