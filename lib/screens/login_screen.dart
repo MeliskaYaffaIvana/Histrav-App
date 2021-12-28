@@ -1,9 +1,9 @@
-import 'package:histrav_app_flutter/Screens/home_screen.dart';
 import 'package:histrav_app_flutter/Screens/register_screnn.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:histrav_app_flutter/profile/profile.dart';
+import 'package:histrav_app_flutter/Screens/forgot_password.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -129,6 +129,20 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 35),
                     loginButton,
                     const SizedBox(height: 15),
+                    TextButton(
+                      onPressed: () => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ForgotPassword(),
+                          ),
+                        )
+                      },
+                      child: const Text(
+                        'Forgot Password ?',
+                        style: TextStyle(fontSize: 14.0),
+                      ),
+                    ),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -169,7 +183,7 @@ class _LoginScreenState extends State<LoginScreen> {
             .then((uid) => {
                   Fluttertoast.showToast(msg: "Login Successful"),
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const HomeScreen())),
+                      builder: (context) => const ProfileApp())),
                 });
       } on FirebaseAuthException catch (error) {
         switch (error.code) {
