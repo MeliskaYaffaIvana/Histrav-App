@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:histrav_app_flutter/model/custom_colors.dart';
 import 'package:histrav_app_flutter/utils/database.dart';
 import 'package:histrav_app_flutter/utils/validator.dart';
 import 'custom_form_field.dart';
@@ -144,7 +143,7 @@ class _AddItemFormState extends State<AddItemForm> {
                   padding: EdgeInsets.all(16.0),
                   child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
-                      const Color(0xff61825F),
+                       Color(0xff61825F),
                     ),
                   ),
                 )

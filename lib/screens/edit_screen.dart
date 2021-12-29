@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:histrav_app_flutter/model/custom_colors.dart';
 import 'package:histrav_app_flutter/utils/database.dart';
 import 'package:histrav_app_flutter/widget/edit_item_form.dart';
+
 
 class EditScreen extends StatefulWidget {
   final String currentdestination;
@@ -44,7 +44,7 @@ class _EditScreenState extends State<EditScreen> {
         _priceFocusNode.unfocus();
       },
       child: Scaffold(
-        backgroundColor: CustomColors.firebaseNavy,
+        backgroundColor: const Color(0xffCEEEDD),
         appBar: AppBar(
           elevation: 0,
           actions: [

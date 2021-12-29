@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:histrav_app_flutter/model/custom_colors.dart';
 import 'package:histrav_app_flutter/Screens/add_screen.dart';
 import 'package:histrav_app_flutter/widget/item_list.dart';
 
@@ -11,17 +10,20 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
+  // ignore: unused_field
   final FocusNode _nameFocusNode = FocusNode();
+  // ignore: unused_field
   final FocusNode _emailFocusNode = FocusNode();
+  // ignore: unused_field
   final FocusNode _passwordFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CustomColors.firebaseNavy,
+      backgroundColor: const Color(0xffCEEEDD),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: CustomColors.firebaseNavy,
+        backgroundColor: const Color(0xff61825F),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -31,7 +33,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
           );
         },
-        backgroundColor: CustomColors.appPurple1,
+        backgroundColor: const Color(0xffCEEEDD),
         child: const Icon(
           Icons.add,
           color: Colors.white,

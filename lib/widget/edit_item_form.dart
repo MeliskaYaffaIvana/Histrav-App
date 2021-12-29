@@ -132,7 +132,7 @@ class _EditItemFormState extends State<EditItemForm> {
                   padding: EdgeInsets.all(16.0),
                   child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
-                      CustomColors.appPurple1,
+                       Color(0xff61825F),
                     ),
                   ),
                 )
@@ -142,7 +142,7 @@ class _EditItemFormState extends State<EditItemForm> {
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(
-                        CustomColors.appPurple1,
+                        const Color(0xff61825F),
                       ),
                       shape: MaterialStateProperty.all(
                         RoundedRectangleBorder(
@@ -181,7 +181,7 @@ class _EditItemFormState extends State<EditItemForm> {
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: CustomColors.firebaseGrey,
+                          color:  Color(0xff61825F),
                           letterSpacing: 2,
                         ),
                       ),

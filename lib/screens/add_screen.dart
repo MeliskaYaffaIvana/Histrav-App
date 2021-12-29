@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:histrav_app_flutter/model/custom_colors.dart';
 import 'package:histrav_app_flutter/widget/add_item_form.dart';
 
 class AddScreen extends StatelessWidget {
@@ -20,10 +19,10 @@ class AddScreen extends StatelessWidget {
         _priceFocusNode.unfocus();
       },
       child: Scaffold(
-        backgroundColor: CustomColors.firebaseNavy,
+        backgroundColor: const Color(0xffCEEEDD),
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: CustomColors.firebaseNavy,
+          backgroundColor: const Color(0xff61825F),
         ),
         body: SafeArea(
           child: Padding(
