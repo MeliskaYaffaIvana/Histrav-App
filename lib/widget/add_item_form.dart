@@ -7,11 +7,15 @@ import 'custom_form_field.dart';
 class AddItemForm extends StatefulWidget {
   final FocusNode destinationFocusNode;
   final FocusNode cityFocusNode;
+  final FocusNode descriptionFocusNode;
+  final FocusNode priceFocusNode;
 
   const AddItemForm({
     Key? key,
     required this.destinationFocusNode,
     required this.cityFocusNode,
+    required this.descriptionFocusNode,
+    required this.priceFocusNode,
   }) : super(key: key);
 
   @override
@@ -25,6 +29,8 @@ class _AddItemFormState extends State<AddItemForm> {
 
   final TextEditingController _destinationController = TextEditingController();
   final TextEditingController _cityController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
+  final TextEditingController _priceController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +44,10 @@ class _AddItemFormState extends State<AddItemForm> {
               children: [
                 const SizedBox(height: 10.0),
                 const Text(
-                  'Course Name',
+                  'Tempat Destinasi',
                   style: TextStyle(
-                    color: CustomColors.firebaseGrey,
-                    fontSize: 22.0,
+                    color: Color(0Xffc8e6c9),
+                    fontSize: 20.0,
                     letterSpacing: 1,
                     fontWeight: FontWeight.bold,
                   ),
@@ -56,14 +62,37 @@ class _AddItemFormState extends State<AddItemForm> {
                   validator: (value) => Validator.validateField(
                     value: value,
                   ),
-                  label: 'Course Name',
-                  hint: 'Please Enter Course Name',
+                  label: 'Tempat Destinasi',
+                  hint: 'Please Enter The Destination Name',
+                ),
+                const SizedBox(height: 10.0),
+                const Text(
+                  'Kota',
+                  style: TextStyle(
+                    color: Color(0Xffc8e6c9),
+                    fontSize: 20.0,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 8.0),
+                CustomFormField(
+                  isLabelEnabled: false,
+                  controller: _destinationController,
+                  focusNode: widget.destinationFocusNode,
+                  keyboardType: TextInputType.text,
+                  inputAction: TextInputAction.next,
+                  validator: (value) => Validator.validateField(
+                    value: value,
+                  ),
+                  label: 'Kota',
+                  hint: 'Please Enter The City Name',
                 ),
                 const SizedBox(height: 24.0),
                 const Text(
-                  'Class Link',
+                  'Deskripsi',
                   style: TextStyle(
-                    color: CustomColors.firebaseGrey,
+                    color: Color(0Xffc8e6c9),
                     fontSize: 22.0,
                     letterSpacing: 1,
                     fontWeight: FontWeight.bold,
@@ -80,8 +109,32 @@ class _AddItemFormState extends State<AddItemForm> {
                   validator: (value) => Validator.validateField(
                     value: value,
                   ),
-                  label: 'Class Link',
-                  hint: 'Please Enter Class Link',
+                  label: 'Deskripsi',
+                  hint:
+                      'Enter your description about that place and your review',
+                ),
+                const SizedBox(height: 10.0),
+                const Text(
+                  'Tiket Masuk',
+                  style: TextStyle(
+                    color: Color(0Xffc8e6c9),
+                    fontSize: 20.0,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 8.0),
+                CustomFormField(
+                  isLabelEnabled: false,
+                  controller: _destinationController,
+                  focusNode: widget.destinationFocusNode,
+                  keyboardType: TextInputType.text,
+                  inputAction: TextInputAction.next,
+                  validator: (value) => Validator.validateField(
+                    value: value,
+                  ),
+                  label: 'Tiket Masuk',
+                  hint: 'Please Enter The price of Admission Ticket',
                 ),
               ],
             ),
@@ -91,7 +144,7 @@ class _AddItemFormState extends State<AddItemForm> {
                   padding: EdgeInsets.all(16.0),
                   child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
-                      CustomColors.appPurple1,
+                      const Color(0xff61825F),
                     ),
                   ),
                 )
@@ -101,7 +154,7 @@ class _AddItemFormState extends State<AddItemForm> {
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(
-                        CustomColors.appPurple1,
+                        const Color(0xff61825F),
                       ),
                       shape: MaterialStateProperty.all(
                         RoundedRectangleBorder(
@@ -121,6 +174,8 @@ class _AddItemFormState extends State<AddItemForm> {
                         await Database.addItem(
                           destination: _destinationController.text,
                           city: _cityController.text,
+                          description: _descriptionController.text,
+                          price: _priceController.text,
                         );
 
                         setState(() {
@@ -137,7 +192,7 @@ class _AddItemFormState extends State<AddItemForm> {
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: CustomColors.firebaseGrey,
+                          color: Color(0Xffc8e6c9),
                           letterSpacing: 2,
                         ),
                       ),

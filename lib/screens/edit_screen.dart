@@ -7,11 +7,16 @@ import 'package:histrav_app_flutter/widget/edit_item_form.dart';
 class EditScreen extends StatefulWidget {
   final String currentdestination;
   final String currentcity;
+  final String currentdescription;
+  final String currentprice;
   final String documentId;
 
-  const EditScreen({Key? key, 
+  const EditScreen({
+    Key? key,
     required this.currentdestination,
     required this.currentcity,
+    required this.currentdescription,
+    required this.currentprice,
     required this.documentId,
   }) : super(key: key);
 
@@ -24,6 +29,10 @@ class _EditScreenState extends State<EditScreen> {
 
   final FocusNode _cityFocusNode = FocusNode();
 
+  final FocusNode _descriptionFocusNode = FocusNode();
+
+  final FocusNode _priceFocusNode = FocusNode();
+
   bool _isDeleting = false;
 
   @override
@@ -32,6 +41,8 @@ class _EditScreenState extends State<EditScreen> {
       onTap: () {
         _destinationFocusNode.unfocus();
         _cityFocusNode.unfocus();
+        _descriptionFocusNode.unfocus();
+        _priceFocusNode.unfocus();
       },
       child: Scaffold(
         backgroundColor: CustomColors.firebaseNavy,
@@ -89,8 +100,12 @@ class _EditScreenState extends State<EditScreen> {
               documentId: widget.documentId,
               destinationFocusNode: _destinationFocusNode,
               cityFocusNode: _cityFocusNode,
+              descriptionFocusNode: _descriptionFocusNode,
+              priceFocusNode: _priceFocusNode,
               currentdestination: widget.currentdestination,
               currentcity: widget.currentcity,
+              currentdescription: widget.currentdescription,
+              currentprice: widget.currentprice,
             ),
           ),
         ),

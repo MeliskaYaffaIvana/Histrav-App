@@ -6,8 +6,10 @@ import 'package:histrav_app_flutter/widget/app_bar_title.dart';
 class AddScreen extends StatelessWidget {
   final FocusNode _destinationFocusNode = FocusNode();
   final FocusNode _cityFocusNode = FocusNode();
+  final FocusNode _descriptionFocusNode = FocusNode();
+  final FocusNode _priceFocusNode = FocusNode();
 
-   AddScreen({Key? key}) : super(key: key);
+  AddScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +17,8 @@ class AddScreen extends StatelessWidget {
       onTap: () {
         _destinationFocusNode.unfocus();
         _cityFocusNode.unfocus();
+        _descriptionFocusNode.unfocus();
+        _priceFocusNode.unfocus();
       },
       child: Scaffold(
         backgroundColor: CustomColors.firebaseNavy,
@@ -33,6 +37,8 @@ class AddScreen extends StatelessWidget {
             child: AddItemForm(
               destinationFocusNode: _destinationFocusNode,
               cityFocusNode: _cityFocusNode,
+              descriptionFocusNode: _descriptionFocusNode,
+              priceFocusNode: _priceFocusNode,
             ),
           ),
         ),

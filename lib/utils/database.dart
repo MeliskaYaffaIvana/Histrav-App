@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -9,6 +11,8 @@ class Database {
   static Future<void> addItem({
     required String destination,
     required String city,
+    required String description,
+    required String price,
   }) async {
     DocumentReference documentReferencer =
         _mainCollection.doc(userUid).collection('items').doc();
@@ -16,6 +20,8 @@ class Database {
     Map<String, dynamic> data = <String, dynamic>{
       "destination": destination,
       "city": city,
+      "description": description,
+      "price": price,
     };
 
     await documentReferencer
@@ -30,6 +36,8 @@ class Database {
   static Future<void> updateItem({
     required String destination,
     required String city,
+    required String description,
+    required String price,
     required String docId,
   }) async {
     DocumentReference documentReferencer =
@@ -38,6 +46,8 @@ class Database {
     Map<String, dynamic> data = <String, dynamic>{
       "destination": destination,
       "city": city,
+      "description": description,
+      "price": price,
     };
 
     await documentReferencer

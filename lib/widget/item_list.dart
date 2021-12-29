@@ -23,6 +23,8 @@ class ItemList extends StatelessWidget {
               String docID = snapshot.data!.docs[index].id;
               String destination = noteInfo['destination'];
               String city = noteInfo['city'];
+              String description = noteInfo['description'];
+              String price = noteInfo['price'];
 
               return Ink(
                 decoration: BoxDecoration(
@@ -38,6 +40,8 @@ class ItemList extends StatelessWidget {
                       builder: (context) => EditScreen(
                         currentdestination: destination,
                         currentcity: city,
+                        currentdescription: description,
+                        currentprice: price,
                         documentId: docID,
                       ),
                     ),

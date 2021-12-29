@@ -7,15 +7,24 @@ import 'custom_form_field.dart';
 class EditItemForm extends StatefulWidget {
   final FocusNode destinationFocusNode;
   final FocusNode cityFocusNode;
+  final FocusNode descriptionFocusNode;
+  final FocusNode priceFocusNode;
   final String currentdestination;
   final String currentcity;
+  final String currentdescription;
+  final String currentprice;
   final String documentId;
 
-  const EditItemForm({Key? key, 
+  const EditItemForm({
+    Key? key,
     required this.destinationFocusNode,
     required this.cityFocusNode,
+    required this.descriptionFocusNode,
+    required this.priceFocusNode,
     required this.currentdestination,
     required this.currentcity,
+    required this.currentdescription,
+    required this.currentprice,
     required this.documentId,
   }) : super(key: key);
 
@@ -30,6 +39,8 @@ class _EditItemFormState extends State<EditItemForm> {
 
   late TextEditingController _destinationController;
   late TextEditingController _cityController;
+  late TextEditingController _descriptionController;
+  late TextEditingController _priceController;
 
   @override
   void initState() {
@@ -39,6 +50,14 @@ class _EditItemFormState extends State<EditItemForm> {
 
     _cityController = TextEditingController(
       text: widget.currentcity,
+    );
+
+    _descriptionController = TextEditingController(
+      text: widget.currentdescription,
+    );
+
+    _priceController = TextEditingController(
+      text: widget.currentprice,
     );
     super.initState();
   }
@@ -118,7 +137,7 @@ class _EditItemFormState extends State<EditItemForm> {
                   ),
                 )
               : Container(
-                padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   width: double.maxFinite,
                   child: ElevatedButton(
                     style: ButtonStyle(
@@ -144,6 +163,8 @@ class _EditItemFormState extends State<EditItemForm> {
                           docId: widget.documentId,
                           destination: _destinationController.text,
                           city: _cityController.text,
+                          description: _descriptionController.text,
+                          price: _priceController.text,
                         );
 
                         setState(() {
