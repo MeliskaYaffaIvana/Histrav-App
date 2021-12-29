@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:histrav_app_flutter/model/custom_colors.dart';
 import 'package:histrav_app_flutter/screens/edit_screen.dart';
 import 'package:histrav_app_flutter/utils/database.dart';
 
@@ -28,13 +27,10 @@ class ItemList extends StatelessWidget {
 
               return Ink(
                 decoration: BoxDecoration(
-                  color: CustomColors.firebaseGrey.withOpacity(0.1),
+                  color: const Color(0xff61825F).withOpacity(0.1),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
-                child: ListTile(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
+                child:  GestureDetector(
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => EditScreen(
@@ -46,13 +42,24 @@ class ItemList extends StatelessWidget {
                       ),
                     ),
                   ),
-                  title: Text(
+                  
+                  child: Text(
                     destination,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  subtitle: Text(
+                  child: Text(
                     city,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  child Text(
+                    description,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  child Text(
+                    price,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -65,7 +72,7 @@ class ItemList extends StatelessWidget {
         return const Center(
           child: CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(
-              CustomColors.appPurple1,
+               Color(0xff61825F),
             ),
           ),
         );

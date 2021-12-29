@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:histrav_app_flutter/Screens/add_screen.dart';
-import 'package:histrav_app_flutter/Screens/register_screnn.dart';
+import 'package:histrav_app_flutter/Screens/dashboard_screen.dart';
 import 'package:histrav_app_flutter/profile/profile.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -22,8 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final _listPage = <Widget>[
-      const RegistrationScreen(),
-      AddScreen(),
+      const DashboardScreen(),
       const ProfileApp(),
     ];
 
@@ -31,10 +29,6 @@ class _HomeScreenState extends State<HomeScreen> {
       BottomNavigationBarItem(
         icon: Icon(Icons.home),
         title: Text('Home'),
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.add),
-        title: Text('Add'),
       ),
       BottomNavigationBarItem(
         icon: Icon(Icons.people),

@@ -21,10 +21,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffCEEEDD),
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: const Color(0xff61825F),
-      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(
@@ -42,7 +38,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
       body: const SafeArea(
         child: Padding(
-          padding:  EdgeInsets.only(
+          padding: EdgeInsets.only(
             left: 16.0,
             right: 16.0,
             bottom: 20.0,

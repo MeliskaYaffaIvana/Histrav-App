@@ -65,7 +65,7 @@ class _EditItemFormState extends State<EditItemForm> {
   Widget build(BuildContext context) {
     return Form(
       key: _editItemFormKey,
-      child: Column(
+      child: ListView(
         children: [
           Padding(
             padding: const EdgeInsets.only(
@@ -81,7 +81,7 @@ class _EditItemFormState extends State<EditItemForm> {
                   'Tempat Destinasi',
                   style: TextStyle(
                     color: Color(0Xffc8e6c9),
-                    fontSize: 22.0,
+                    fontSize: 20.0,
                     letterSpacing: 1,
                     fontWeight: FontWeight.bold,
                   ),
@@ -112,7 +112,7 @@ class _EditItemFormState extends State<EditItemForm> {
                 const SizedBox(height: 8.0),
                 CustomFormField(
                   isLabelEnabled: false,
-                  controller: _destinationController,
+                  controller: _cityController,
                   focusNode: widget.destinationFocusNode,
                   keyboardType: TextInputType.text,
                   inputAction: TextInputAction.next,
@@ -136,7 +136,7 @@ class _EditItemFormState extends State<EditItemForm> {
                 CustomFormField(
                   maxLines: 10,
                   isLabelEnabled: false,
-                  controller: _cityController,
+                  controller: _descriptionController,
                   focusNode: widget.cityFocusNode,
                   keyboardType: TextInputType.text,
                   inputAction: TextInputAction.done,
@@ -160,7 +160,7 @@ class _EditItemFormState extends State<EditItemForm> {
                 const SizedBox(height: 8.0),
                 CustomFormField(
                   isLabelEnabled: false,
-                  controller: _destinationController,
+                  controller: _priceController,
                   focusNode: widget.destinationFocusNode,
                   keyboardType: TextInputType.text,
                   inputAction: TextInputAction.next,
@@ -178,7 +178,7 @@ class _EditItemFormState extends State<EditItemForm> {
                   padding: EdgeInsets.all(16.0),
                   child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
-                      const Color(0xff61825F),
+                      Color(0xff61825F),
                     ),
                   ),
                 )
@@ -227,7 +227,7 @@ class _EditItemFormState extends State<EditItemForm> {
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: const Color(0xff61825F),
+                          color: Color(0xff61825F),
                           letterSpacing: 2,
                         ),
                       ),

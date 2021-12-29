@@ -35,17 +35,17 @@ class _AddItemFormState extends State<AddItemForm> {
   Widget build(BuildContext context) {
     return Form(
       key: _addItemFormKey,
-      child: Column(
+      child: ListView(
         children: [
           Flexible(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 10.0),
+                const SizedBox(height: 5.0),
                 const Text(
                   'Tempat Destinasi',
                   style: TextStyle(
-                    color: Color(0Xffc8e6c9),
+                    color: Colors.black,
                     fontSize: 20.0,
                     letterSpacing: 1,
                     fontWeight: FontWeight.bold,
@@ -68,7 +68,7 @@ class _AddItemFormState extends State<AddItemForm> {
                 const Text(
                   'Kota',
                   style: TextStyle(
-                    color: Color(0Xffc8e6c9),
+                    color: Colors.black,
                     fontSize: 20.0,
                     letterSpacing: 1,
                     fontWeight: FontWeight.bold,
@@ -77,7 +77,7 @@ class _AddItemFormState extends State<AddItemForm> {
                 const SizedBox(height: 8.0),
                 CustomFormField(
                   isLabelEnabled: false,
-                  controller: _destinationController,
+                  controller: _cityController,
                   focusNode: widget.destinationFocusNode,
                   keyboardType: TextInputType.text,
                   inputAction: TextInputAction.next,
@@ -91,8 +91,8 @@ class _AddItemFormState extends State<AddItemForm> {
                 const Text(
                   'Deskripsi',
                   style: TextStyle(
-                    color: Color(0Xffc8e6c9),
-                    fontSize: 22.0,
+                    color: Colors.black,
+                    fontSize: 20.0,
                     letterSpacing: 1,
                     fontWeight: FontWeight.bold,
                   ),
@@ -101,7 +101,7 @@ class _AddItemFormState extends State<AddItemForm> {
                 CustomFormField(
                   maxLines: 10,
                   isLabelEnabled: false,
-                  controller: _cityController,
+                  controller: _descriptionController,
                   focusNode: widget.cityFocusNode,
                   keyboardType: TextInputType.text,
                   inputAction: TextInputAction.done,
@@ -116,7 +116,7 @@ class _AddItemFormState extends State<AddItemForm> {
                 const Text(
                   'Tiket Masuk',
                   style: TextStyle(
-                    color: Color(0Xffc8e6c9),
+                    color: Colors.black,
                     fontSize: 20.0,
                     letterSpacing: 1,
                     fontWeight: FontWeight.bold,
@@ -125,7 +125,7 @@ class _AddItemFormState extends State<AddItemForm> {
                 const SizedBox(height: 8.0),
                 CustomFormField(
                   isLabelEnabled: false,
-                  controller: _destinationController,
+                  controller: _priceController,
                   focusNode: widget.destinationFocusNode,
                   keyboardType: TextInputType.text,
                   inputAction: TextInputAction.next,
@@ -143,7 +143,7 @@ class _AddItemFormState extends State<AddItemForm> {
                   padding: EdgeInsets.all(16.0),
                   child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
-                       Color(0xff61825F),
+                      Color(0xff61825F),
                     ),
                   ),
                 )

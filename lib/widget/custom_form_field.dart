@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:histrav_app_flutter/model/custom_colors.dart';
 
 class CustomFormField extends StatelessWidget {
   const CustomFormField({
