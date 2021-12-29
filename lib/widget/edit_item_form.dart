@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:histrav_app_flutter/model/custom_colors.dart';
 import 'package:histrav_app_flutter/utils/database.dart';
 import 'package:histrav_app_flutter/utils/validator.dart';
 import 'custom_form_field.dart';
