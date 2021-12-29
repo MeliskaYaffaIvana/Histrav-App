@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:histrav_app_flutter/model/custom_colors.dart';
 import 'package:histrav_app_flutter/widget/add_item_form.dart';
-import 'package:histrav_app_flutter/widget/app_bar_title.dart';
 
 class AddScreen extends StatelessWidget {
   final FocusNode _destinationFocusNode = FocusNode();
@@ -25,7 +24,6 @@ class AddScreen extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: CustomColors.firebaseNavy,
-          title: const AppBarTitle(),
         ),
         body: SafeArea(
           child: Padding(
