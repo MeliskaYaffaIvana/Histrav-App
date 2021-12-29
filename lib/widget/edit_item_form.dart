@@ -79,9 +79,9 @@ class _EditItemFormState extends State<EditItemForm> {
               children: [
                 const SizedBox(height: 24.0),
                 const Text(
-                  'Course Name',
+                  'Tempat Destinasi',
                   style: TextStyle(
-                    color: CustomColors.firebaseGrey,
+                    color: Color(0Xffc8e6c9),
                     fontSize: 22.0,
                     letterSpacing: 1,
                     fontWeight: FontWeight.bold,
@@ -97,14 +97,37 @@ class _EditItemFormState extends State<EditItemForm> {
                   validator: (value) => Validator.validateField(
                     value: value,
                   ),
-                  label: 'Course Name',
-                  hint: 'Please Enter Course Name',
+                  label: 'Tempat Destinasi',
+                  hint: 'Please Enter Destination Name',
+                ),
+                const SizedBox(height: 10.0),
+                const Text(
+                  'Kota',
+                  style: TextStyle(
+                    color: Color(0Xffc8e6c9),
+                    fontSize: 20.0,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 8.0),
+                CustomFormField(
+                  isLabelEnabled: false,
+                  controller: _destinationController,
+                  focusNode: widget.destinationFocusNode,
+                  keyboardType: TextInputType.text,
+                  inputAction: TextInputAction.next,
+                  validator: (value) => Validator.validateField(
+                    value: value,
+                  ),
+                  label: 'Kota',
+                  hint: 'Please Enter The City Name',
                 ),
                 const SizedBox(height: 24.0),
                 const Text(
-                  'Class Link',
+                  'Deskripsi',
                   style: TextStyle(
-                    color: CustomColors.firebaseGrey,
+                    color: Color(0Xffc8e6c9),
                     fontSize: 22.0,
                     letterSpacing: 1,
                     fontWeight: FontWeight.bold,
@@ -121,8 +144,32 @@ class _EditItemFormState extends State<EditItemForm> {
                   validator: (value) => Validator.validateField(
                     value: value,
                   ),
-                  label: 'Class Link',
-                  hint: 'Please Enter Class Link',
+                  label: 'Deskripsi',
+                  hint:
+                      'Enter your description about that place and your review',
+                ),
+                const SizedBox(height: 10.0),
+                const Text(
+                  'Tiket Masuk',
+                  style: TextStyle(
+                    color: Color(0Xffc8e6c9),
+                    fontSize: 20.0,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 8.0),
+                CustomFormField(
+                  isLabelEnabled: false,
+                  controller: _destinationController,
+                  focusNode: widget.destinationFocusNode,
+                  keyboardType: TextInputType.text,
+                  inputAction: TextInputAction.next,
+                  validator: (value) => Validator.validateField(
+                    value: value,
+                  ),
+                  label: 'Tiket Masuk',
+                  hint: 'Please Enter The price of Admission Ticket',
                 ),
               ],
             ),
@@ -132,7 +179,7 @@ class _EditItemFormState extends State<EditItemForm> {
                   padding: EdgeInsets.all(16.0),
                   child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
-                      CustomColors.appPurple1,
+                      const Color(0xff61825F),
                     ),
                   ),
                 )
@@ -142,7 +189,7 @@ class _EditItemFormState extends State<EditItemForm> {
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(
-                        CustomColors.appPurple1,
+                        const Color(0xff61825F),
                       ),
                       shape: MaterialStateProperty.all(
                         RoundedRectangleBorder(
@@ -181,7 +228,7 @@ class _EditItemFormState extends State<EditItemForm> {
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: CustomColors.firebaseGrey,
+                          color: const Color(0xff61825F),
                           letterSpacing: 2,
                         ),
                       ),
